@@ -1,5 +1,13 @@
 <template>
   <main class="form-signin text-center">
+    <div class="d-flex justify-content-end mb-3">
+      <a
+        href="javascript:"
+        class="link-register"
+        @click="fnAlert('Teste de cadastro de conta HFPSIS Bank')"
+        >Criar nova conta</a
+      >
+    </div>
     <img class="mb-4" src="../../public/img/logo.png" width="72" height="72" />
     <h1 class="h3 mb-3 fw-normal h1-title-login">Faça seu login</h1>
     <label for="inputEmail" class="visually-hidden">E-Mail</label>
@@ -27,7 +35,7 @@
           value=""
           id="flexCheckDefault"
         />
-        Limbrar acesso
+        Lembrar acesso
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-login" type="button">Entrar</button>
@@ -39,6 +47,11 @@ export default {
   name: 'Login',
   beforeCreate() {
     document.title = '</ HFPSIS > - Login'
+  },
+  methods: {
+    fnAlert(value) {
+      alert(value)
+    }
   }
 }
 </script>
@@ -50,10 +63,13 @@ body {
 }
 .form-signin {
   width: 100%;
-  max-width: 330px;
-  height: calc(100vh - 85px);
+  max-width: 450px;
   padding: 15px;
-  margin: auto;
+  margin: 100px auto;
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.05);
 }
 .form-signin .checkbox {
   font-weight: 400;
@@ -88,6 +104,15 @@ body {
 
 .h1-title-login {
   color: #aaa !important;
+}
+
+.link-register {
+  color: var(--color-primary);
+  text-decoration: none;
+  &:hover {
+    color: var(--color-primary-active);
+    text-decoration: underline;
+  }
 }
 
 @media (min-width: 768px) {
