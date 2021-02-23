@@ -1,5 +1,5 @@
 <template>
-  <main class="form-signin text-center">
+  <main class="form-signin rtl text-center">
     <div class="d-flex justify-content-end mb-3">
       <a
         href="javascript:"
@@ -39,12 +39,25 @@
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-login" type="button">Entrar</button>
+    <div class="mt-3">
+      <Alert label="Teste de Alert" type="primary" />
+      <!-- <Alert label="Teste de Alert" type="secondary" />
+      <Alert label="Teste de Alert" type="success" />
+      <Alert label="Teste de Alert" type="danger" />
+      <Alert label="Teste de Alert" type="warning" />
+      <Alert label="Teste de Alert" type="info" />
+      <Alert label="Teste de Alert" type="light" />
+      <Alert label="Teste de Alert" type="dark" /> -->
+    </div>
   </main>
 </template>
 
 <script>
+import Alert from '../components/Alert'
+
 export default {
   name: 'Login',
+  components: { Alert },
   beforeCreate() {
     document.title = '</ HFPSIS > - Login'
   },
@@ -61,16 +74,34 @@ body {
   display: flex;
   align-items: center;
 }
+
 .form-signin {
   width: 100%;
   max-width: 450px;
-  padding: 15px;
-  margin: 100px auto;
-  background-color: #fff;
   padding: 50px;
-  border-radius: 5px;
+  background-color: #fff;
   box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.05);
+
+  &.rta {
+    margin: 100px auto;
+    border-radius: 5px;
+  }
+  &.rtl {
+    position: absolute;
+    height: 100%;
+    border-radius: 0px;
+    left: 0;
+    bottom: 0;
+  }
+  &.rtr {
+    position: absolute;
+    height: 100%;
+    border-radius: 0px;
+    right: 0;
+    bottom: 0;
+  }
 }
+
 .form-signin .checkbox {
   font-weight: 400;
 }
