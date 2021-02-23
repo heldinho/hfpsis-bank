@@ -1,0 +1,30 @@
+.form-check-input:checked {
+  background-color: #52b180;
+  border-color: #52b180;
+}
+
+.btn-login {
+  background-color: #52b180;
+  color: #fff;
+  box-shadow: #52b180 !important;
+}
+
+.btn-login:active {
+  background-color: #489775;
+}
+
+.form-control {
+  color: #444;
+}
+
+.form-control::placeholder {
+  color: #aaa;
+}
+
+.form-check-input:focus,
+.btn-login:focus,
+.form-control:focus {
+  outline: none;
+  border-color: #52b180;
+  box-shadow: 0 0 0 0.25rem rgba(82, 177, 128, 0.25);
+}
