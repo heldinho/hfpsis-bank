@@ -36,7 +36,12 @@
 </template>
 
 <script>
-export default {}
+export default {
+  name: 'Login',
+  beforeCreate() {
+    document.title = '</ HFPSIS > - Login'
+  }
+}
 </script>
 
 <style lang="scss" scoped>
