@@ -1,5 +1,28 @@
 <template>
-  <main class="form-signin rtl text-center">
+  <div class="btn-group" role="group" aria-label="Basic example">
+    <span
+      type="button"
+      :class="['btn', dtLayout == 'rtl' ? 'btn-primary' : 'btn-default']"
+      @click="fnLayout('rtl')"
+    >
+      Esquerdo
+    </span>
+    <span
+      type="button"
+      :class="['btn', dtLayout == 'rta' ? 'btn-primary' : 'btn-default']"
+      @click="fnLayout('rta')"
+    >
+      Centro
+    </span>
+    <span
+      type="button"
+      :class="['btn', dtLayout == 'rtr' ? 'btn-primary' : 'btn-default']"
+      @click="fnLayout('rtr')"
+    >
+      Direito
+    </span>
+  </div>
+  <main :class="['form-signin text-center', dtLayout]">
     <div class="d-flex justify-content-end mb-3">
       <a
         href="javascript:"
@@ -58,12 +81,24 @@ import Alert from '../components/Alert'
 export default {
   name: 'Login',
   components: { Alert },
+  data: () => ({
+    dtLayout: 'rta'
+  }),
   beforeCreate() {
     document.title = '</ HFPSIS > - Login'
   },
+  mounted() {
+    if (localStorage.getItem('layout')) {
+      this.dtLayout = localStorage.getItem('layout')
+    }
+  },
   methods: {
-    fnAlert(value) {
-      alert(value)
+    fnAlert(val) {
+      alert(val)
+    },
+    fnLayout(val) {
+      this.dtLayout = val
+      localStorage.setItem('layout', val)
     }
   }
 }
