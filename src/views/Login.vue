@@ -31,7 +31,6 @@
       </label>
     </div>
     <button class="w-100 btn btn-lg btn-login" type="button">Entrar</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
   </main>
 </template>
 
@@ -45,22 +44,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-html,
-body {
-  height: 100%;
-}
-
 body {
   display: flex;
   align-items: center;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: #f5f5f5;
 }
-
 .form-signin {
   width: 100%;
   max-width: 330px;
+  height: calc(100vh - 85px);
   padding: 15px;
   margin: auto;
 }
