@@ -10,12 +10,34 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('../views/Home.vue')
+    component: () => import('../views/Home.vue'),
+    redirect: () => {
+      if (false) {
+        return '/'
+      } else {
+        return '/login'
+      }
+    },
+    beforeEnter: (to, from, next) => {
+      next(false)
+    },
+    children: []
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import('../views/About.vue'),
+    redirect: () => {
+      if (false) {
+        return '/about'
+      } else {
+        return '/login'
+      }
+    },
+    beforeEnter: (to, from, next) => {
+      next(false)
+    },
+    children: []
   }
 ]
 
