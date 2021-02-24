@@ -2,27 +2,27 @@
   <div class="btn-group" role="group" aria-label="Basic example">
     <span
       type="button"
-      :class="['btn', dtLayout == 'rtl' ? 'btn-primary' : 'btn-default']"
+      :class="['btn', layout == 'rtl' ? 'btn-primary' : 'btn-default']"
       @click="fnLayout('rtl')"
     >
       Esquerdo
     </span>
     <span
       type="button"
-      :class="['btn', dtLayout == 'rta' ? 'btn-primary' : 'btn-default']"
+      :class="['btn', layout == 'rta' ? 'btn-primary' : 'btn-default']"
       @click="fnLayout('rta')"
     >
       Centro
     </span>
     <span
       type="button"
-      :class="['btn', dtLayout == 'rtr' ? 'btn-primary' : 'btn-default']"
+      :class="['btn', layout == 'rtr' ? 'btn-primary' : 'btn-default']"
       @click="fnLayout('rtr')"
     >
       Direito
     </span>
   </div>
-  <main :class="['form-signin text-center', dtLayout]">
+  <main :class="['form-signin text-center', layout]">
     <div class="d-flex justify-content-end mb-3">
       <a
         href="javascript:"
@@ -61,7 +61,15 @@
         Lembrar acesso
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-login" type="button">Entrar</button>
+    <button
+      class="w-100 btn btn-lg btn-login d-flex justify-content-center align-items-center"
+      type="button"
+      @click="fnSubmit"
+      :disabled="loading"
+    >
+      <span class="spinner-border text-dark" v-if="loading" />
+      <span v-else>Entrar</span>
+    </button>
     <div class="mt-3">
       <Alert label="Teste de Alert" type="primary" />
       <!-- <Alert label="Teste de Alert" type="secondary" />
@@ -82,14 +90,15 @@ export default {
   name: 'Login',
   components: { Alert },
   data: () => ({
-    dtLayout: 'rta'
+    layout: 'rta',
+    loading: false
   }),
   beforeCreate() {
     document.title = '</ HFPSIS > - Login'
   },
   mounted() {
     if (localStorage.getItem('layout')) {
-      this.dtLayout = localStorage.getItem('layout')
+      this.layout = localStorage.getItem('layout')
     }
   },
   methods: {
@@ -97,8 +106,14 @@ export default {
       alert(val)
     },
     fnLayout(val) {
-      this.dtLayout = val
+      this.layout = val
       localStorage.setItem('layout', val)
+    },
+    fnSubmit() {
+      this.loading = true
+      setTimeout(() => {
+        this.loading = false
+      }, 3000)
     }
   }
 }
