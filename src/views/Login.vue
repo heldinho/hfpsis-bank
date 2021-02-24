@@ -41,6 +41,7 @@
       placeholder="Email"
       required
       autofocus
+      :disabled="loading"
     />
     <label for="inputPassword" class="visually-hidden">Senha</label>
     <input
@@ -49,6 +50,7 @@
       class="form-control form-control-lg"
       placeholder="Senha"
       required
+      :disabled="loading"
     />
     <div class="checkbox mb-3">
       <label class="form-check-label" for="flexCheckDefault">
@@ -57,6 +59,7 @@
           type="checkbox"
           value=""
           id="flexCheckDefault"
+          :disabled="loading"
         />
         Lembrar acesso
       </label>
