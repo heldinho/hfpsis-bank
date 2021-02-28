@@ -1,11 +1,18 @@
 <template>
-  <div id="nav">
-    <router-link to="/login">Login</router-link> |
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Navbar />
+  <div class="mt-5">
+    <router-view />
   </div>
-  <router-view />
 </template>
+
+<script>
+import Navbar from '@/components/Navbar'
+export default {
+  components: {
+    Navbar
+  }
+}
+</script>
 
 <style lang="scss">
 body {
@@ -22,18 +29,5 @@ body {
   color: #2c3e50;
   height: 100vh;
   border: 0px solid #000;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
